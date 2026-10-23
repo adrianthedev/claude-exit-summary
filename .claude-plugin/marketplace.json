@@ -1,0 +1,5 @@
+{
+  "name": "claude-exit-summary",
+  "owner": { "name": "Adrian" },
+  "plugins": [{ "name": "exit-summary", "source": "./" }]
+}

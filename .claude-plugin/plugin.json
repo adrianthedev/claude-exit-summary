@@ -1,0 +1,6 @@
+{
+  "name": "exit-summary",
+  "version": "0.1.0",
+  "description": "Prints the session's title and latest recap above the resume hint on exit",
+  "license": "MIT"
+}
