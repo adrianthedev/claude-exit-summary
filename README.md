@@ -29,12 +29,12 @@ claude plugin install exit-summary --marketplace adrianthedev/claude-exit-summar
 
 ## How it works
 
-When the session ends, the mod reads the last 256 KiB of the session's transcript (`~/.claude/projects/<project>/<session id>.jsonl`) to find the newest title and recap. Claude Code has already printed the resume hint by then, so the mod moves the cursor up two lines, clears them, prints the summary, and prints the resume hint again. If a future Claude Code version prints something else after the resume hint, the summary may land in the wrong place.
+When the session ends, the mod reads the session's transcript (`~/.claude/projects/<project>/<session id>.jsonl`) to find the newest title and recap. Claude Code has already printed the resume hint by then, so the mod moves the cursor up two lines, clears them, prints the summary, and prints the resume hint again. If a future Claude Code version prints something else after the resume hint, the summary may land in the wrong place.
+
+Claude Code lets a mod read files up to 4 MB. For a longer transcript the mod shows only a recap Claude wrote while the mod was running, and no title.
 
 ## What it runs and sends
 
-- It runs one program: `sh`, with a fixed script. The script does one of two things, picked by the first line the mod sends on its standard input:
-  - `tail`: runs `tail -c 262144` on the transcript path that follows, so the mod can read the end of a transcript that is too large to read whole.
-  - `tty`: copies the rest of its input to `/dev/tty`, because Claude Code has no API for writing to the terminal after the session closes.
-- It reads one environment variable, `HOME`, to find the transcript.
+- It runs one program, `tee /dev/tty`, with those fixed arguments. It writes the summary to your terminal, because Claude Code has no API for writing to the terminal after the session closes.
+- It reads one file, the session's transcript, and one environment variable, `HOME`, to find it.
 - It sends nothing over the network. The summary goes to your own terminal and nowhere else.
