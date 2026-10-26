@@ -5,6 +5,7 @@ A Claude Code mod. When you exit a session, it prints what the session was about
 ```
 Avo dependency updates on main and lc · 2026-10-23 15:05
 Updated all Avo gems on main and lc and pushed both branches.
+
 Resume this session with:
 claude --resume 56221e9f-b607-4bb8-8b17-7382f6c970fd
 ```

@@ -33,7 +33,7 @@ export const register: Register = (on) => {
       // Claude Code has already printed the 2-line resume hint, and no API writes to the exit screen.
       // So the helper goes up 2 rows and clears to the end; then the title and time, the recap and the hint again.
       // ponytail: assumes the hint is the last 2 rows; if Claude Code changes its exit output, this lands in the wrong place.
-      await helper($, `tty\n${title}\n${recap ? `${recap}\n` : ''}Resume this session with:\nclaude --resume ${e.resume.id}\n`)
+      await helper($, `tty\n${title}\n${recap ? `${recap}\n` : ''}\nResume this session with:\nclaude --resume ${e.resume.id}\n`)
     } catch {}
     return next(e)
   })
