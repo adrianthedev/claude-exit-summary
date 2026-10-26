@@ -1,5 +1,13 @@
 {
   "name": "claude-exit-summary",
-  "owner": { "name": "Adrian" },
-  "plugins": [{ "name": "exit-summary", "source": "./" }]
+  "owner": {
+    "name": "Adrian"
+  },
+  "plugins": [
+    {
+      "name": "exit-summary",
+      "source": "./"
+    }
+  ],
+  "description": "Adrian's Claude Code mods"
 }
